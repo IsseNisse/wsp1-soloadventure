@@ -1,19 +1,51 @@
 body {
-    background-color: bisque;
-    font-size: 16px;
+    background-color: #121619;
+    color: #119da4;
+    font-size: 25px;
+    font-family: 'Kalam', cursive;
+
 }
 
 main {
     width: 60%;
     margin: 0 auto;
+    border: 5px solid;
+    padding: 4px 10px;
+    margin-top: 10px;
 }
 
 p {
     font-size: 1.4em;
 }
 
-ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
+a {
+    text-decoration: none;
+}
+
+.button {
+    background-color: #2d4739;
+    border: none;
+    padding: 1px 10px;
+    margin-bottom: 7px;
+    margin-left: 5px;
+    width: 250px;
+}
+
+button:not(:disabled) {
+    padding: 3px 0px;
+
+}
+
+.nav-link {
+    color:  #09814a;
+}
+
+#logo {
+    filter: invert(100%);
+    max-width: 50px;
+    max-height: 100px;
+}
+
+.active {
+    color: #119da4;
 }
