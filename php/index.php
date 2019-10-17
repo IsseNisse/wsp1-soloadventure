@@ -1,35 +1,24 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-include 'include/db.php';
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC%7CIndie+Flower%7CSatisfy%7CKalam&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
 
-session_start();
-$filteredId = 1;
+<body>
+    <?php include 'views/header.php'; ?>
 
-if(isset($_GET['id'])) {
-    //använd get id
-    //$id = $_GET['id'];    
-    $filteredId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-    $_SESSION['id'] = $filteredId;
-} elseif (isset($_SESSION['id'])) {
-        $filteredId = filter_var($_SESSION['id'], FILTER_VALIDATE_INT);
-}
+    <main class="inner cover" role="main">
+        <h1>Välkommen till Hans & Greta</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem beatae illo eius omnis nisi repellendus doloremque perspiciatis fugiat enim ab, eum voluptatem, dignissimos ducimus, accusamus pariatur doloribus laborum tempore rerum.</p>
+    </main>
 
-echo $id;
+</body>
 
-$sth = $dbh->prepare('SELECT * FROM story
-                    WHERE id = :filteredId');
-$sth->bindParam(':filteredId', $filteredId);
-$sth->execute();
-$story = $sth->fetch(PDO::FETCH_ASSOC);
-
-$sth = $dbh->prepare('SELECT * FROM links
-                    WHERE story_id = :filteredId');
-$sth->bindParam(':filteredId', $filteredId);
-$sth->execute();
-$links = $sth->fetchAll(PDO::FETCH_ASSOC);
-
-$page_title = "Soloäventyr - Start";
-
-include 'views/index_layout.php';
-
-?>
+</html>
