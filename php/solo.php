@@ -16,6 +16,16 @@ if(isset($_GET['id'])) {
 
 echo $id;
 
+// Work in proggress
+
+if(isset($_GET['story_id = 12'])) {
+    $_SESSION['story_id'] = $val;
+} //elseif (isset($_SESSION['links'])) {
+    
+//}
+
+echo $_SESSION;
+
 $sth = $dbh->prepare('SELECT * FROM story
                     WHERE id = :filteredId');
 $sth->bindParam(':filteredId', $filteredId);
